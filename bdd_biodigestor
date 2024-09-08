@@ -1,0 +1,20 @@
+CREATE TABLE Biodigestor (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    temperatura_optima_minima FLOAT NOT NULL,
+    temperatura_optima_maxima FLOAT NOT NULL,
+    ph_optimo_minimo FLOAT NOT NULL,
+    ph_optimo_maximo FLOAT NOT NULL,
+    cantidad_ideal_minima FLOAT NOT NULL,
+    cantidad_ideal_maxima FLOAT NOT NULL
+);
+
+CREATE TABLE Lecturas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    biodigestor_id INT,
+    temperatura FLOAT,
+    ph FLOAT,
+    cantidad_material FLOAT,
+    fecha_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (biodigestor_id) REFERENCES Biodigestor(id)
+);
+ 
